@@ -15,11 +15,11 @@ provider:
             - dynamodb:GetItem
             - dynamodb:Scan
           Resource:
-            - arn:aws:dynamodb:us-east-2:681770010987:table/ItemTable
+            - arn:aws:dynamodb:us-east-2:681770010987:table/ItemTableNew
 
 functions:
-  api:
-    handler: src/index.handler
+  hello:
+    handler: src/hello.handler
     events:
       - http:
           path: /
@@ -51,10 +51,10 @@ functions:
 
 resources:
   Resources:
-    ItemTable:
+    ItemTableNew:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ItemTable
+        TableName: ItemTableNew
         BillingMode: PAY_PER_REQUEST
         AttributeDefinitions:
           - AttributeName: id
